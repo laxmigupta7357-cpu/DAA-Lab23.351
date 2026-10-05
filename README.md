@@ -82,6 +82,30 @@ Lakshmangarh, Rajasthan
     <td>Bubble Sort</td>
     <td><a href="#program-6-bubble-sort">Program 6</a></td>
   </tr>
+
+  <tr>
+    <td>7</td>
+    <td>Selection Sort</td>
+    <td><a href="#program-7-selection-sort">Program 7</a></td>
+  </tr>
+
+  <tr>
+    <td>8</td>
+    <td>Insertion Sort</td>
+    <td><a href="#program-8-insertion-sort">Program 8</a></td>
+  </tr>
+
+  <tr>
+    <td>9</td>
+    <td>Merge Sort</td>
+    <td><a href="#program-9-merge-sort">Program 9</a></td>
+  </tr>
+
+  <tr>
+    <td>10</td>
+    <td>Quick Sort</td>
+    <td><a href="#program-10-quick-sort">Program 10</a></td>
+  </tr>
 </table>
 
 
@@ -312,4 +336,246 @@ print("Peak Memory:", peak, "bytes")
 [Back to Index](#index)
 
 ---
+
+# Program 7: Selection Sort
+
+## Aim
+
+Write a Python program to sort an array using Selection Sort and find its execution time and memory used.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+arr = [50, 30, 10, 40, 20]
+
+tracemalloc.start()
+
+start = time.time()
+
+# Selection Sort
+n = len(arr)
+
+for i in range(n):
+
+    small = i
+
+    for j in range(i + 1, n):
+
+        if arr[j] < arr[small]:
+            small = j
+
+    temp = arr[i]
+    arr[i] = arr[small]
+    arr[small] = temp
+
+end = time.time()
+
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Sorted Array:", arr)
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+```
+
+## Sample Output
+
+<img width="288" height="59" alt="image" src="https://github.com/user-attachments/assets/87ce28e4-1a9b-41dc-a528-ecbc388a0628" />
+
+
+[Back to Index](#index)
+
+---
+
+# Program 8: Insertion Sort
+
+## Aim
+
+Write a Python program to sort an array using Insertion Sort and find its execution time and memory used.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+arr = [50, 30, 10, 40, 20]
+
+tracemalloc.start()
+
+start = time.time()
+
+# Insertion Sort
+n = len(arr)
+
+for i in range(1, n):
+
+    key = arr[i]
+    j = i - 1
+
+    while j >= 0 and arr[j] > key:
+
+        arr[j + 1] = arr[j]
+        j = j - 1
+
+    arr[j + 1] = key
+
+end = time.time()
+
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Sorted Array:", arr)
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+```
+
+## Sample Output
+
+<img width="293" height="55" alt="image" src="https://github.com/user-attachments/assets/1481a177-cb08-4f15-a0ea-fb037ccfce50" />
+
+
+[Back to Index](#index)
+
+---
+
+# Program 9:Merge Sort
+
+## Aim
+
+Write a Python program to sort an array using Merge Sort and find its execution time and memory used.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+def merge_sort(arr):
+
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    result = []
+
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+
+        if left[i] < right[j]:
+            result.append(left[i])
+            i = i + 1
+
+        else:
+            result.append(right[j])
+            j = j + 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+
+arr = [50, 30, 10, 40, 20]
+
+tracemalloc.start()
+
+start = time.time()
+
+arr = merge_sort(arr)
+
+end = time.time()
+
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Sorted Array:", arr)
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+
+```
+
+## Sample Output
+
+<img width="340" height="62" alt="image" src="https://github.com/user-attachments/assets/415dafbb-38f3-415a-9898-2ddb100174f5" />
+
+
+[Back to Index](#index)
+
+---
+# Program 10:Quick Sort
+
+## Aim
+
+Write a Python program to sort an array using Quick Sort and find its execution time and memory used.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+def quick_sort(arr):
+
+    if len(arr) <= 1:
+        return arr
+
+    pivot = arr[0]
+
+    left = []
+    right = []
+
+    for i in range(1, len(arr)):
+
+        if arr[i] < pivot:
+            left.append(arr[i])
+        else:
+            right.append(arr[i])
+
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+
+arr = [50, 30, 10, 40, 20]
+
+tracemalloc.start()
+
+start = time.time()
+
+arr = quick_sort(arr)
+
+end = time.time()
+
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Sorted Array:", arr)
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+
+```
+
+## Sample Output
+
+<img width="299" height="50" alt="image" src="https://github.com/user-attachments/assets/315c8f0d-3984-4b8b-ab23-2f77268a8890" />
+
+[Back to Index](#index)
+
+---
+
+
+
+
 
