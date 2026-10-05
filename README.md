@@ -444,7 +444,7 @@ print("Peak Memory:", peak, "bytes")
 
 ---
 
-# Program 9:Merge Sort
+# Program 9: Merge Sort
 
 ## Aim
 
@@ -515,7 +515,7 @@ print("Peak Memory:", peak, "bytes")
 [Back to Index](#index)
 
 ---
-# Program 10:Quick Sort
+# Program 10: Quick Sort
 
 ## Aim
 
