@@ -76,6 +76,12 @@ Lakshmangarh, Rajasthan
     <td>Fibonacci Series</td>
     <td><a href="#program-5-fibonacci-series">Program 5</a></td>
   </tr>
+
+  <tr>
+    <td>6</td>
+    <td>Bubble Sort</td>
+    <td><a href="#program-6-bubble-sort">Program 6</a></td>
+  </tr>
 </table>
 
 
@@ -263,7 +269,7 @@ class Student:
 
 <div style="page-break-after: always;"></div>
 
-# Program 5: Bubble Sort
+# Program 6: Bubble Sort
 
 ## Aim
 
