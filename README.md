@@ -110,7 +110,7 @@ Lakshmangarh, Rajasthan
   <tr>
     <td>11</td>
     <td>Time and Memory Comparison of all Sortings</td>
-    <td><a href="#program-11-Time and Memory Comparison of all Sortings">Program 11</a></td>
+    <td><a href="#program-11-Time-and-Memory-Comparison-of-all-Sortings">Program 11</a></td>
   </tr>
 </table>
 
