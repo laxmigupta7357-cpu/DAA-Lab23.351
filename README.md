@@ -260,15 +260,6 @@ Enter number of terms: 7
 
 ---
 
-Example:
-
-```python
-class Student:
-    def display(self):
-        print("Hello")
-
-<div style="page-break-after: always;"></div>
-
 # Program 6: Bubble Sort
 
 ## Aim
