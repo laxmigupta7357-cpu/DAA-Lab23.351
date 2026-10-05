@@ -260,3 +260,59 @@ Example:
 class Student:
     def display(self):
         print("Hello")
+
+<div style="page-break-after: always;"></div>
+
+# Program 5: Bubble Sort
+
+## Aim
+
+Write a Python program to sort the given array in ascending order using Bubble Sort. Also calculate its execution time and memory usage.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+arr = [50, 30, 10, 40, 20]
+
+# Start memory
+tracemalloc.start()
+
+# Start time
+start = time.time()
+
+# Bubble Sort
+n = len(arr)
+
+for i in range(n):
+    for j in range(n - i - 1):
+
+        if arr[j] > arr[j + 1]:
+            temp = arr[j]
+            arr[j] = arr[j + 1]
+            arr[j + 1] = temp
+
+# End time
+end = time.time()
+
+# Memory
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Sorted Array:", arr)
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+```
+
+## Sample Output
+
+<img width="270" height="45" alt="image" src="https://github.com/user-attachments/assets/0f51adf1-12a8-449b-95c1-5d14dbe39753" />
+
+
+[Back to Index](#index)
+
+---
+
