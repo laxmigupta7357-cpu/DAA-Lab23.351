@@ -112,6 +112,18 @@ Lakshmangarh, Rajasthan
     <td>Time and Memory Comparison of all Sortings</td>
     <td><a href="#program-11-Time-and-Memory-Comparison-of-all-Sortings">Program 11</a></td>
   </tr>
+
+  <tr>
+    <td>12</td>
+    <td>Linear Search</td>
+    <td><a href="#program-12-linear-search">Program 12</a></td>
+  </tr>
+
+  <tr>
+    <td>13</td>
+    <td>Binary Search</td>
+    <td><a href="#program-13-binary-search">Program 13</a></td>
+  </tr>
 </table>
 
 
@@ -780,6 +792,113 @@ plt.show()
 
 <img width="311" height="53" alt="image" src="https://github.com/user-attachments/assets/f7f8fca7-2761-4e76-9c39-664cae37f09a" />
 <img width="911" height="459" alt="image" src="https://github.com/user-attachments/assets/c0889196-962d-429a-817d-57d0bef9a7b5" />
+
+[Back to Index](#index)
+
+---
+# Program 12: Linear Search
+
+## Aim
+
+Write a Python program to search for a given element in an array using Linear Search. Also calculate its execution time and memory usage.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+arr = [10, 20, 30, 40, 50]
+value = 30
+
+tracemalloc.start()
+
+start = time.time()
+
+found = False
+
+for i in range(len(arr)):
+    if arr[i] == value:
+        print("Element found at position:", i)
+        found = True
+        break
+
+if found == False:
+    print("Element not found")
+
+end = time.time()
+
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+
+```
+
+## Sample Output
+
+<img width="293" height="56" alt="image" src="https://github.com/user-attachments/assets/97729835-b4cd-4c75-8e4e-129e0f99c13e" />
+
+[Back to Index](#index)
+
+---
+# Program 13: Binary Search
+
+## Aim
+
+Write a Python program to search for a given element in a sorted array using Binary Search. Also calculate its execution time and memory usage.
+
+## Program
+
+```python
+import time
+import tracemalloc
+
+arr = [10, 20, 30, 40, 50]
+value = 40
+
+tracemalloc.start()
+
+start = time.time()
+
+low = 0
+high = len(arr) - 1
+found = False
+
+while low <= high:
+
+    mid = (low + high) // 2
+
+    if arr[mid] == value:
+        print("Element found at position:", mid)
+        found = True
+        break
+
+    elif arr[mid] < value:
+        low = mid + 1
+
+    else:
+        high = mid - 1
+
+if found == False:
+    print("Element not found")
+
+end = time.time()
+
+current, peak = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+
+print("Execution Time:", end - start, "seconds")
+print("Memory Used:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+
+```
+
+## Sample Output
+
+<img width="289" height="62" alt="image" src="https://github.com/user-attachments/assets/b1d80fb8-9198-4293-9c64-0b81cebb656a" />
 
 [Back to Index](#index)
 
