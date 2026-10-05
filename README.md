@@ -106,6 +106,12 @@ Lakshmangarh, Rajasthan
     <td>Quick Sort</td>
     <td><a href="#program-10-quick-sort">Program 10</a></td>
   </tr>
+
+  <tr>
+    <td>11</td>
+    <td>Time and Memory Comparison of all Sortings</td>
+    <td><a href="#program-11-Time and Memory Comparison of all Sortings">Program 11</a></td>
+  </tr>
 </table>
 
 
@@ -570,6 +576,210 @@ print("Peak Memory:", peak, "bytes")
 ## Sample Output
 
 <img width="299" height="50" alt="image" src="https://github.com/user-attachments/assets/315c8f0d-3984-4b8b-ab23-2f77268a8890" />
+
+[Back to Index](#index)
+
+---
+# Program 11: Time and Memory Comparison of all Sortings
+
+## Aim
+
+Implement Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, and Quick Sort in Python. Calculate the execution time and memory usage of each algorithm and compare their performance using graphs.
+
+## Program
+
+```python
+import time
+import matplotlib.pyplot as plt
+
+# Original array
+arr = [50, 30, 10, 40, 20, 70, 60, 80, 90, 100]
+
+
+# ---------------- BUBBLE SORT ----------------
+
+def bubble_sort(a):
+
+    a = a.copy()
+
+    n = len(a)
+
+    for i in range(n):
+        for j in range(n - i - 1):
+
+            if a[j] > a[j + 1]:
+
+                temp = a[j]
+                a[j] = a[j + 1]
+                a[j + 1] = temp
+
+    return a
+
+
+# ---------------- SELECTION SORT ----------------
+
+def selection_sort(a):
+
+    a = a.copy()
+
+    n = len(a)
+
+    for i in range(n):
+
+        small = i
+
+        for j in range(i + 1, n):
+
+            if a[j] < a[small]:
+                small = j
+
+        temp = a[i]
+        a[i] = a[small]
+        a[small] = temp
+
+    return a
+
+
+# ---------------- INSERTION SORT ----------------
+
+def insertion_sort(a):
+
+    a = a.copy()
+
+    n = len(a)
+
+    for i in range(1, n):
+
+        key = a[i]
+        j = i - 1
+
+        while j >= 0 and a[j] > key:
+
+            a[j + 1] = a[j]
+            j = j - 1
+
+        a[j + 1] = key
+
+    return a
+
+
+# ---------------- MERGE SORT ----------------
+
+def merge_sort(a):
+
+    if len(a) <= 1:
+        return a
+
+    mid = len(a) // 2
+
+    left = merge_sort(a[:mid])
+    right = merge_sort(a[mid:])
+
+    result = []
+
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+
+# ---------------- QUICK SORT ----------------
+
+def quick_sort(a):
+
+    if len(a) <= 1:
+        return a
+
+    pivot = a[0]
+
+    left = []
+    right = []
+
+    for i in range(1, len(a)):
+
+        if a[i] < pivot:
+            left.append(a[i])
+        else:
+            right.append(a[i])
+
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+
+# ---------------- FIND EXECUTION TIME ----------------
+
+times = []
+
+start = time.time()
+bubble_sort(arr)
+times.append(time.time() - start)
+
+start = time.time()
+selection_sort(arr)
+times.append(time.time() - start)
+
+start = time.time()
+insertion_sort(arr)
+times.append(time.time() - start)
+
+start = time.time()
+merge_sort(arr)
+times.append(time.time() - start)
+
+start = time.time()
+quick_sort(arr)
+times.append(time.time() - start)
+
+
+# ---------------- PRINT TIME ----------------
+
+print("Bubble Sort Time:", times[0])
+print("Selection Sort Time:", times[1])
+print("Insertion Sort Time:", times[2])
+print("Merge Sort Time:", times[3])
+print("Quick Sort Time:", times[4])
+
+
+# ---------------- GRAPH ----------------
+
+names = [
+    "Bubble Sort",
+    "Selection Sort",
+    "Insertion Sort",
+    "Merge Sort",
+    "Quick Sort"
+]
+
+plt.bar(names, times)
+
+plt.xlabel("Sorting Algorithms")
+plt.ylabel("Execution Time")
+
+plt.title("Comparison of Sorting Algorithms")
+
+plt.xticks(rotation=20)
+
+plt.grid()
+
+plt.show()
+
+```
+
+## Sample Output
+
+<img width="311" height="53" alt="image" src="https://github.com/user-attachments/assets/f7f8fca7-2761-4e76-9c39-664cae37f09a" />
+<img width="911" height="459" alt="image" src="https://github.com/user-attachments/assets/c0889196-962d-429a-817d-57d0bef9a7b5" />
 
 [Back to Index](#index)
 
