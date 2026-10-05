@@ -36,7 +36,6 @@ Lakshmangarh, Rajasthan
 
 <div style="page-break-after: always;"></div>
 
-# INDEX
 
 # INDEX
 
