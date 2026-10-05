@@ -124,6 +124,12 @@ Lakshmangarh, Rajasthan
     <td>Binary Search</td>
     <td><a href="#program-13-binary-search">Program 13</a></td>
   </tr>
+  
+  <tr>
+    <td>14</td>
+    <td>Time and Memory Comparison of linear and binary searching</td>
+    <td><a href="#program-14-Time-and-Memory-Comparison-of-linear-and-binary-searching">Program 14</a></td>
+  </tr>
 </table>
 
 
@@ -899,6 +905,118 @@ print("Peak Memory:", peak, "bytes")
 ## Sample Output
 
 <img width="289" height="62" alt="image" src="https://github.com/user-attachments/assets/b1d80fb8-9198-4293-9c64-0b81cebb656a" />
+
+[Back to Index](#index)
+
+---
+# Program 14: Time and Memory Comparison of linear and binary searching
+
+## Aim
+
+Write a Python program to compare the execution time of Linear Search and Binary Search and represent the comparison using a graph.
+
+## Program
+
+```python
+import time
+import matplotlib.pyplot as plt
+
+# Different input sizes
+sizes = [1000, 5000, 10000, 20000, 50000]
+
+linear_times = []
+binary_times = []
+
+for n in sizes:
+
+    arr = list(range(n))
+    value = n - 1
+
+    # ---------------- Linear Search ----------------
+
+    start = time.perf_counter()
+
+    for i in range(len(arr)):
+        if arr[i] == value:
+            break
+
+    end = time.perf_counter()
+
+    linear_times.append(end - start)
+
+
+    # ---------------- Binary Search ----------------
+
+    start = time.perf_counter()
+
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        if arr[mid] == value:
+            break
+
+        elif arr[mid] < value:
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    end = time.perf_counter()
+
+    binary_times.append(end - start)
+
+
+# Print results
+print("Input Size        Linear Search                      Binary Search")
+
+for i in range(len(sizes)):
+    print(
+        sizes[i],
+        "        ",
+        linear_times[i],
+        "        ",
+        binary_times[i]
+    )
+
+
+# ---------------- GRAPH ----------------
+
+plt.plot(
+    sizes,
+    linear_times,
+    marker='o',
+    label="Linear Search"
+)
+
+plt.plot(
+    sizes,
+    binary_times,
+    marker='o',
+    label="Binary Search"
+)
+
+plt.xlabel("Input Size (n)")
+plt.ylabel("Execution Time (seconds)")
+
+plt.title("Linear Search vs Binary Search")
+
+plt.legend()
+plt.grid()
+
+plt.show()
+
+```
+
+## Sample Output
+
+<img width="408" height="87" alt="image" src="https://github.com/user-attachments/assets/46db1611-d130-415e-beac-b101988b351c" />
+<img width="479" height="355" alt="image" src="https://github.com/user-attachments/assets/0a74dcb3-82bd-426f-9118-4007ab780cf5" />
+
+
 
 [Back to Index](#index)
 
