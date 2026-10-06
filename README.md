@@ -129,6 +129,12 @@ Lakshmangarh, Rajasthan
     <td>Time and Memory Comparison of linear and binary searching</td>
     <td><a href="#program-14-Time-and-Memory-Comparison-of-linear-and-binary-searching">Program 14</a></td>
   </tr>
+
+  <tr>
+    <td>15</td>
+    <td>Time and Memory Comparison of different time complexities</td>
+    <td><a href="#program-15-Time-and-Memory-Comparison-of-different-time-complexities">Program 15</a></td>
+  </tr>
 </table>
 
 
@@ -1016,6 +1022,304 @@ plt.show()
 <img width="479" height="355" alt="image" src="https://github.com/user-attachments/assets/0a74dcb3-82bd-426f-9118-4007ab780cf5" />
 
 
+
+[Back to Index](#index)
+
+---
+
+# Program 15: Time and Memory Comparison of different time complexities
+
+## Aim
+
+Write a Python program to demonstrate different time complexities and calculate execution time and memory usage.
+
+## Program
+
+```python
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. O(1) - Constant Time
+# ------------------------------------------------------------
+print("\n========== O(1) - CONSTANT TIME ==========")
+
+a = [10, 20, 30]
+print("Array:", a)
+print("First element:", a[0])
+
+
+# ------------------------------------------------------------
+# 2. O(log n) - Logarithmic Time
+# ------------------------------------------------------------
+print("\n========== O(log n) - LOGARITHMIC TIME ==========")
+
+n = 16
+original_n = n
+
+while n > 1:
+    n = n // 2
+
+print("Original n:", original_n)
+print("Value after repeated division:", n)
+
+
+# ------------------------------------------------------------
+# 3. O(sqrt(n)) - Square Root Time
+# ------------------------------------------------------------
+print("\n========== O(sqrt(n)) - SQUARE ROOT TIME ==========")
+
+n = 10
+i = 1
+
+while i * i <= n:
+    i += 1
+
+print("n =", n)
+print("Number of iterations:", i - 1)
+
+
+# ------------------------------------------------------------
+# 4. O(n) - Linear Time
+# ------------------------------------------------------------
+print("\n========== O(n) - LINEAR TIME ==========")
+
+n = 5
+
+for i in range(n):
+    print("i =", i)
+
+
+# ------------------------------------------------------------
+# 5. O(n log n) - Linearithmic Time
+# ------------------------------------------------------------
+print("\n========== O(n log n) - LINEARITHMIC TIME ==========")
+
+n = 4
+
+for i in range(n):
+    j = i
+
+    while j > 1:
+        j = j // 2
+
+    print("i =", i, "final j =", j)
+
+
+# ------------------------------------------------------------
+# 6. O(n^2) - Quadratic Time
+# ------------------------------------------------------------
+print("\n========== O(n^2) - QUADRATIC TIME ==========")
+
+n = 2
+
+for i in range(n):
+    for j in range(n):
+        print("(", i, ",", j, ")")
+
+
+# ------------------------------------------------------------
+# 7. O(n^3) - Cubic Time
+# ------------------------------------------------------------
+print("\n========== O(n^3) - CUBIC TIME ==========")
+
+n = 2
+
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            print("(", i, ",", j, ",", k, ")")
+
+
+# ------------------------------------------------------------
+# 8. O(2^n) - Exponential Time
+# ------------------------------------------------------------
+print("\n========== O(2^n) - EXPONENTIAL TIME ==========")
+
+def fun_exponential(n):
+
+    if n == 0:
+        return
+
+    print(n)
+
+    fun_exponential(n - 1)
+    fun_exponential(n - 1)
+
+
+print("Output for n = 3:")
+fun_exponential(3)
+
+
+# ------------------------------------------------------------
+# 9. O(n!) - Factorial Time
+# ------------------------------------------------------------
+print("\n========== O(n!) - FACTORIAL TIME ==========")
+
+from itertools import permutations
+
+n = 2
+
+for p in permutations(range(n)):
+    print(p)
+
+
+# ------------------------------------------------------------
+# 10. EXECUTION TIME
+# ------------------------------------------------------------
+print("\n========== EXECUTION TIME ==========")
+
+import time
+
+start = time.time()
+
+# Program
+for i in range(1000000):
+    pass
+
+end = time.time()
+
+print("Execution Time:", end - start, "seconds")
+
+
+# ------------------------------------------------------------
+# 11. MEMORY USED
+# ------------------------------------------------------------
+print("\n========== MEMORY USED ==========")
+
+import tracemalloc
+
+tracemalloc.start()
+
+# Program
+a = [i for i in range(100000)]
+
+current, peak = tracemalloc.get_traced_memory()
+
+print("Current Memory:", current, "bytes")
+print("Peak Memory:", peak, "bytes")
+
+tracemalloc.stop()
+
+
+# ------------------------------------------------------------
+# END
+# ------------------------------------------------------------
+print("\n==============================================")
+print("       ALL COMPLEXITIES EXECUTED SUCCESSFULLY")
+print("==============================================")
+# ------------------------------------------------------------
+# 12. GRAPH PLOT - COMPARISON OF TIME COMPLEXITIES
+# ------------------------------------------------------------
+
+import matplotlib.pyplot as plt
+
+# Values of n
+n_values = range(1, 11)
+
+# Different time complexities
+O_1 = [1 for n in n_values]
+O_log_n = [__import__('math').log2(n) for n in n_values]
+O_sqrt_n = [n ** 0.5 for n in n_values]
+O_n = [n for n in n_values]
+O_n_log_n = [n * __import__('math').log2(n) for n in n_values]
+O_n2 = [n ** 2 for n in n_values]
+O_n3 = [n ** 3 for n in n_values]
+O_2n = [2 ** n for n in n_values]
+
+# Plot
+plt.figure(figsize=(10, 6))
+
+plt.plot(n_values, O_1, marker='o', label='O(1)')
+plt.plot(n_values, O_log_n, marker='o', label='O(log n)')
+plt.plot(n_values, O_sqrt_n, marker='o', label='O(sqrt(n))')
+plt.plot(n_values, O_n, marker='o', label='O(n)')
+plt.plot(n_values, O_n_log_n, marker='o', label='O(n log n)')
+plt.plot(n_values, O_n2, marker='o', label='O(n^2)')
+plt.plot(n_values, O_n3, marker='o', label='O(n^3)')
+plt.plot(n_values, O_2n, marker='o', label='O(2^n)')
+
+plt.xlabel("Input Size (n)")
+plt.ylabel("Number of Operations / Growth")
+plt.title("Comparison of Time Complexities")
+
+plt.legend()
+plt.grid(True)
+
+plt.show()
+
+```
+
+## Sample Output
+
+```text
+========== O(1) - CONSTANT TIME ==========
+Array: [10, 20, 30]
+First element: 10
+
+========== O(log n) - LOGARITHMIC TIME ==========
+Original n: 16
+Value after repeated division: 1
+
+========== O(sqrt(n)) - SQUARE ROOT TIME ==========
+n = 10
+Number of iterations: 3
+
+========== O(n) - LINEAR TIME ==========
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+
+========== O(n log n) - LINEARITHMIC TIME ==========
+i = 0 final j = 0
+i = 1 final j = 1
+i = 2 final j = 1
+i = 3 final j = 1
+
+========== O(n^2) - QUADRATIC TIME ==========
+( 0 , 0 )
+( 0 , 1 )
+( 1 , 0 )
+( 1 , 1 )
+
+========== O(n^3) - CUBIC TIME ==========
+( 0 , 0 , 0 )
+( 0 , 0 , 1 )
+( 0 , 1 , 0 )
+( 0 , 1 , 1 )
+( 1 , 0 , 0 )
+( 1 , 0 , 1 )
+( 1 , 1 , 0 )
+( 1 , 1 , 1 )
+
+========== O(2^n) - EXPONENTIAL TIME ==========
+Output for n = 3:
+3
+2
+1
+1
+2
+1
+1
+
+========== O(n!) - FACTORIAL TIME ==========
+(0, 1)
+(1, 0)
+
+========== EXECUTION TIME ==========
+Execution Time: 0.09830784797668457 seconds
+
+========== MEMORY USED ==========
+Current Memory: 3993016 bytes
+Peak Memory: 3993048 bytes
+
+==============================================
+       ALL COMPLEXITIES EXECUTED SUCCESSFULLY
+==============================================
+<img width="926" height="449" alt="image" src="https://github.com/user-attachments/assets/7e0ef8cd-f513-46b5-ac75-5b1c36774f6f" />
+
+```
 
 [Back to Index](#index)
 
