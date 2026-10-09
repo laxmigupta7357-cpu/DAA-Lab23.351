@@ -135,6 +135,30 @@ Lakshmangarh, Rajasthan
     <td>Time and Memory Comparison of different time complexities</td>
     <td><a href="#program-15-Time-and-Memory-Comparison-of-different-time-complexities">Program 15</a></td>
   </tr>
+
+  <tr>
+    <td>16</td>
+    <td>Undirected Graph</td>
+    <td><a href="#program-16-Undirected-Graph">Program 16</a></td>
+  </tr>
+
+  <tr>
+    <td>17</td>
+    <td>Directed Graph</td>
+    <td><a href="#program-17-Directed-Graph">Program 17</a></td>
+  </tr>
+
+  <tr>
+    <td>18</td>
+    <td>Weighted Graph</td>
+    <td><a href="#program-18-Weighted-Graph">Program 18</a></td>
+  </tr>
+
+  <tr>
+    <td>19</td>
+    <td>Directed and Weighted Graph</td>
+    <td><a href="#program-19-Directed-and-Weighted-Graph">Program 19</a></td>
+  </tr>
 </table>
 
 
@@ -1325,6 +1349,309 @@ Peak Memory: 3993048 bytes
 [Back to Index](#index)
 
 ---
+# Program 16: Undirected Graph
+
+## Aim
+
+Write a Python program to create and represent an Undirected Graph using a Node and Graph class.
+
+## Program
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, node1, node2):
+        node1.neighbors.append(node2)
+        node2.neighbors.append(node1)
+
+    def print_graph(self):
+        for node in self.nodes:
+            print(node.data, "->", end=" ")
+            for neighbor in node.neighbors:
+                print(neighbor.data, end=" ")
+            print()
+
+
+# Create graph
+graph = Graph()
+
+A = graph.add_node("A")
+B = graph.add_node("B")
+C = graph.add_node("C")
+D = graph.add_node("D")
+E = graph.add_node("E")
+
+# Add edges
+graph.add_edge(A, B)
+graph.add_edge(A, C)
+graph.add_edge(B, D)
+graph.add_edge(C, D)
+graph.add_edge(D, E)
+graph.add_edge(E, A)
+
+# Print graph
+print("Undirected Graph:")
+graph.print_graph()
+
+```
+
+## Sample Output
+
+```text
+Undirected Graph:
+A -> B C E 
+B -> A D 
+C -> A D 
+D -> B C E 
+E -> D A 
+```
+
+[Back to Index](#index)
+
+---
+
+<div style="page-break-after: always;"></div>
+
+# Program 17: Directed Graph
+
+## Aim
+
+Write a Python program to create and represent a Directed Graph using a Node and Graph class.
+
+## Program
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, node1, node2):
+        node1.neighbors.append(node2)
+
+    def print_graph(self):
+        for node in self.nodes:
+            print(node.data, "->", end=" ")
+            for neighbor in node.neighbors:
+                print(neighbor.data, end=" ")
+            print()
+
+
+# Create graph
+graph = Graph()
+
+A = graph.add_node("A")
+B = graph.add_node("B")
+C = graph.add_node("C")
+D = graph.add_node("D")
+E = graph.add_node("E")
+
+# Add directed edges
+graph.add_edge(A, B)
+graph.add_edge(A, C)
+graph.add_edge(B, D)
+graph.add_edge(C, D)
+graph.add_edge(D, E)
+graph.add_edge(E, A)
+
+# Print graph
+print("Directed Graph:")
+graph.print_graph()
+
+```
+
+## Sample Output
+
+```text
+Directed Graph:
+A -> B C 
+B -> D 
+C -> D 
+D -> E 
+E -> A 
+```
+
+[Back to Index](#index)
+
+---
+
+<div style="page-break-after: always;"></div>
+
+# Program 18: Weighted Graph
+
+## Aim
+
+Write a Python program to create and represent a Weighted Graph using a Node and Graph class.
+
+## Program
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, node1, node2, weight):
+        node1.neighbors.append((node2, weight))
+        node2.neighbors.append((node1, weight))
+
+    def print_graph(self):
+        for node in self.nodes:
+            print(node.data, "->", end=" ")
+            for neighbor, weight in node.neighbors:
+                print(neighbor.data, "(", weight, ")", end=" ")
+            print()
+
+
+# Create graph
+graph = Graph()
+
+A = graph.add_node("A")
+B = graph.add_node("B")
+C = graph.add_node("C")
+D = graph.add_node("D")
+E = graph.add_node("E")
+
+# Add weighted edges
+graph.add_edge(A, B, 5)
+graph.add_edge(A, C, 3)
+graph.add_edge(B, D, 2)
+graph.add_edge(C, D, 4)
+graph.add_edge(D, E, 6)
+graph.add_edge(E, A, 7)
+
+# Print graph
+print("Weighted Graph:")
+graph.print_graph()
+
+```
+
+## Sample Output
+
+```text
+Weighted Graph:
+A -> B ( 5 ) C ( 3 ) E ( 7 ) 
+B -> A ( 5 ) D ( 2 ) 
+C -> A ( 3 ) D ( 4 ) 
+D -> B ( 2 ) C ( 4 ) E ( 6 ) 
+E -> D ( 6 ) A ( 7 ) 
+```
+
+[Back to Index](#index)
+
+---
+
+<div style="page-break-after: always;"></div>
+
+# Program 19: Directed and Weighted Graph
+
+## Aim
+
+Write a Python program to create and represent a Directed and Weighted Graph using a Node and Graph class.
+
+## Program
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, node1, node2, weight):
+        node1.neighbors.append((node2, weight))
+
+    def print_graph(self):
+        for node in self.nodes:
+            print(node.data, "->", end=" ")
+            for neighbor, weight in node.neighbors:
+                print(neighbor.data, "(", weight, ")", end=" ")
+            print()
+
+
+# Create graph
+graph = Graph()
+
+A = graph.add_node("A")
+B = graph.add_node("B")
+C = graph.add_node("C")
+D = graph.add_node("D")
+E = graph.add_node("E")
+
+# Add directed and weighted edges
+graph.add_edge(A, B, 5)
+graph.add_edge(A, C, 3)
+graph.add_edge(B, D, 2)
+graph.add_edge(C, D, 4)
+graph.add_edge(D, E, 6)
+graph.add_edge(E, A, 7)
+
+# Print graph
+print("Directed and Weighted Graph:")
+graph.print_graph()
+
+```
+
+## Sample Output
+
+```text
+Directed and Weighted Graph:
+A -> B ( 5 ) C ( 3 ) 
+B -> D ( 2 ) 
+C -> D ( 4 ) 
+D -> E ( 6 ) 
+E -> A ( 7 ) 
+```
+
+[Back to Index](#index)
+
+---
+
+<div style="page-break-after: always;"></div>
+
+
 
 
 
