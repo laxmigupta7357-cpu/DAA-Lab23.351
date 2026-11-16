@@ -159,10 +159,22 @@ Lakshmangarh, Rajasthan
     <td>Directed and Weighted Graph</td>
     <td><a href="#program-19-Directed-and-Weighted-Graph">Program 19</a></td>
   </tr>
+
   <tr>
     <td>20</td>
+    <td>Comparison of Time Complexities of Dijkstra’s and BellmanFord Algorithms</td>
+    <td><a href="#program-20-Comparison-of-Time-Complexities-of-Dijkstra’s-and-BellmanFord-Algorithms">Program 20</a></td>
+  </tr>
+
+  <tr>
+    <td>21</td>
+    <td>Comparison of Time Complexities of Prim’s and Kruskal’s Algorithms</td>
+    <td><a href="#program-21-Comparison-of-Time-Complexities-of-Prim’s-and-Kruskal’s-Algorithms">Program 21</a></td>
+  </tr>
+  <tr>
+    <td>21</td>
     <td>zero/one Knapsack Problem Using Greedy Approach</td>
-    <td><a href="#program-20-zero/one-Knapsack-Problem-Using-Greedy-Approach">Program 20</a></td>
+    <td><a href="#program-20-zero/one-Knapsack-Problem-Using-Greedy-Approach">Program 22</a></td>
   </tr>
   <tr>
     <td>21</td>
@@ -1661,7 +1673,90 @@ E -> A ( 7 )
 
 <div style="page-break-after: always;"></div>
 
-# Program 20: zero/one Knapsack Problem Using Greedy Approach
+# Program 20: Comparison of Time Complexities of Dijkstra’s and BellmanFord Algorithms
+
+## Aim
+
+To write a Python program to plot a graph comparing the theoretical time complexities of Dijkstra’s and BellmanFord algorithms using Matplotlib.
+
+
+## Program
+
+import matplotlib.pyplot as plt
+
+# Number of vertices
+V = [5, 10, 15, 20, 25, 30]
+
+# Assume a dense graph: E = V*(V-1)/2
+E = [v * (v - 1) // 2 for v in V]
+
+# Theoretical time complexity
+dijkstra = [v ** 2 for v in V]       # O(V^2)
+bellman_ford = [v * e for v, e in zip(V, E)]  # O(VE)
+
+# Plot the graph
+plt.plot(V, dijkstra, marker='o',
+         label="Dijkstra O(V^2)")
+
+plt.plot(V, bellman_ford, marker='o',
+         label="Bellman-Ford O(VE)")
+
+plt.xlabel("Number of Vertices (V)")
+plt.ylabel("Theoretical Operations")
+plt.title("Dijkstra vs Bellman-Ford Complexity")
+
+plt.legend()
+plt.grid(True)
+plt.show()
+
+## Sample Output
+
+<img width="638" height="483" alt="image" src="https://github.com/user-attachments/assets/e9a49e9b-a36a-4e80-a1ea-57d927c8fb30" />
+
+[Back to Index](#index)
+
+# Program 21: Comparison of Time Complexities of Prim’s and Kruskal’s Algorithms
+
+## Aim
+
+To write a Python program to plot a graph comparing the theoretical time complexities of Prim’s and Kruskal’s algorithms using Matplotlib.
+
+## Program
+import matplotlib.pyplot as plt
+import math
+
+# Number of vertices
+V = [5, 10, 15, 20, 25, 30]
+
+# Assume a dense graph: E = V*(V-1)/2
+E = [v * (v - 1) // 2 for v in V]
+
+# Theoretical time complexity
+prim = [v ** 2 for v in V]  # O(V^2)
+kruskal = [e * math.log2(e) for e in E]  # O(E log E)
+
+# Plot the graph
+plt.plot(V, prim, marker='o',
+         label="Prim O(V^2)")
+
+plt.plot(V, kruskal, marker='o',
+         label="Kruskal O(E log E)")
+
+plt.xlabel("Number of Vertices (V)")
+plt.ylabel("Theoretical Operations")
+plt.title("Prim vs Kruskal Complexity")
+
+plt.legend()
+plt.grid(True)
+plt.show()
+
+## Sample Output
+
+<img width="636" height="479" alt="image" src="https://github.com/user-attachments/assets/a6c85f58-417d-499e-acdd-c4712c65b4ed" />
+
+[Back to Index](#index)
+
+# Program 22: zero/one Knapsack Problem Using Greedy Approach
 
 ## Aim
 
@@ -1730,7 +1825,7 @@ Total Profit: 160
 
 <div style="page-break-after: always;"></div>
 
-# Program 21: Fractional Knapsack Problem Using Greedy Approach
+# Program 23: Fractional Knapsack Problem Using Greedy Approach
 
 ## Aim
 
