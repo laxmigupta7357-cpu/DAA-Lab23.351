@@ -166,7 +166,7 @@ Lakshmangarh, Rajasthan
   </tr>
   <tr>
     <td>21</td>
-    <td>0/1 Fractional Knapsack Problem Using Greedy Approach</td>
+    <td>Fractional Knapsack Problem Using Greedy Approach</td>
     <td><a href="#program-21-Fractional-knapsack-Problem-Using-Greedy-Approachh">Program 21</a></td>
   </tr>
 </table>
