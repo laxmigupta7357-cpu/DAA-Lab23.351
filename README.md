@@ -162,7 +162,7 @@ Lakshmangarh, Rajasthan
   <tr>
     <td>20</td>
     <td>0/1 Knapsack Problem Using Greedy Approach</td>
-    <td><a href="#program-20-0/1-knapsack-Problem-Using-Greedy-Approach">Program 20</a></td>
+    <td><a href="#program-20-0/1-Knapsack-Problem-Using-Greedy-Approach">Program 20</a></td>
   </tr>
   <tr>
     <td>21</td>
