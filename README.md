@@ -161,8 +161,8 @@ Lakshmangarh, Rajasthan
   </tr>
   <tr>
     <td>20</td>
-    <td>0/1 Knapsack Problem Using Greedy Approach</td>
-    <td><a href="#program-20-0/1-Knapsack-Problem-Using-Greedy-Approach">Program 20</a></td>
+    <td>zero/one Knapsack Problem Using Greedy Approach</td>
+    <td><a href="#program-20-zero/one-Knapsack-Problem-Using-Greedy-Approach">Program 20</a></td>
   </tr>
   <tr>
     <td>21</td>
@@ -1661,7 +1661,7 @@ E -> A ( 7 )
 
 <div style="page-break-after: always;"></div>
 
-# Program 20: 0/1 Knapsack Problem Using Greedy Approach
+# Program 20: zero/one Knapsack Problem Using Greedy Approach
 
 ## Aim
 
