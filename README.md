@@ -174,7 +174,7 @@ Lakshmangarh, Rajasthan
   <tr>
     <td>22</td>
     <td>zero/one Knapsack Problem Using Greedy Approach</td>
-    <td><a href="#program-22-zero/one-Knapsack-Problem-Using-Greedy-Approach">Program 22</a></td>
+    <td><a href="#program-22-zeroone-knapsack-problem-using-greedy-approach">Program 22</a></td>
   </tr>
   <tr>
     <td>23</td>
