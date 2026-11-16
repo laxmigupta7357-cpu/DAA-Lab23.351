@@ -1681,7 +1681,7 @@ To write a Python program to plot a graph comparing the theoretical time complex
 
 
 ## Program
-'''python
+```python
 
 import matplotlib.pyplot as plt
 
@@ -1709,7 +1709,7 @@ plt.title("Dijkstra vs Bellman-Ford Complexity")
 plt.legend()
 plt.grid(True)
 plt.show()
-'''
+```
 
 ## Sample Output
 
@@ -1724,6 +1724,7 @@ plt.show()
 To write a Python program to plot a graph comparing the theoretical time complexities of Prim’s and Kruskal’s algorithms using Matplotlib.
 
 ## Program
+```python
 import matplotlib.pyplot as plt
 import math
 
@@ -1751,6 +1752,7 @@ plt.title("Prim vs Kruskal Complexity")
 plt.legend()
 plt.grid(True)
 plt.show()
+```
 
 ## Sample Output
 
