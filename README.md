@@ -1681,6 +1681,7 @@ To write a Python program to plot a graph comparing the theoretical time complex
 
 
 ## Program
+'''python
 
 import matplotlib.pyplot as plt
 
@@ -1708,6 +1709,7 @@ plt.title("Dijkstra vs Bellman-Ford Complexity")
 plt.legend()
 plt.grid(True)
 plt.show()
+'''
 
 ## Sample Output
 
