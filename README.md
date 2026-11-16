@@ -172,14 +172,14 @@ Lakshmangarh, Rajasthan
     <td><a href="#program-21-Comparison-of-Time-Complexities-of-Prim’s-and-Kruskal’s-Algorithms">Program 21</a></td>
   </tr>
   <tr>
-    <td>21</td>
+    <td>22</td>
     <td>zero/one Knapsack Problem Using Greedy Approach</td>
-    <td><a href="#program-20-zero/one-Knapsack-Problem-Using-Greedy-Approach">Program 22</a></td>
+    <td><a href="#program-22-zero/one-Knapsack-Problem-Using-Greedy-Approach">Program 22</a></td>
   </tr>
   <tr>
-    <td>21</td>
+    <td>23</td>
     <td>Fractional Knapsack Problem Using Greedy Approach</td>
-    <td><a href="#program-21-Fractional-knapsack-Problem-Using-Greedy-Approach">Program 21</a></td>
+    <td><a href="#program-23-Fractional-knapsack-Problem-Using-Greedy-Approach">Program 23</a></td>
   </tr>
 </table>
 
@@ -1834,6 +1834,7 @@ Write a Python program to implement the Fractional Knapsack Problem using the Gr
 ## Program
 
 ```python
+
 def fractional_knapsack(weights, profits, capacity):
 
     n = len(weights)
@@ -1923,14 +1924,3 @@ Total Profit: 237.42
 ```
 
 [Back to Index](#index)
-
----
-
-<div style="page-break-after: always;"></div>
-
-
-
-
-
-
-
