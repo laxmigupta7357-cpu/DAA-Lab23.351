@@ -169,7 +169,7 @@ Lakshmangarh, Rajasthan
   <tr>
     <td>21</td>
     <td>Comparison of Time Complexities of Prim’s and Kruskal’s Algorithms</td>
-    <td><a href="#program-21-Comparison-of-Time-Complexities-of-Prim’s-and-Kruskal’s-Algorithms">Program 21</a></td>
+    <td><a href="#program-21-comparison-of-time-complexities-of-prims-and-kruskals-algorithms">Program 21</a></td>
   </tr>
   <tr>
     <td>22</td>
