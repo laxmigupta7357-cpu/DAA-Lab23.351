@@ -181,6 +181,31 @@ Lakshmangarh, Rajasthan
     <td>Fractional Knapsack Problem Using Greedy Approach</td>
     <td><a href="#program-23-Fractional-knapsack-Problem-Using-Greedy-Approach">Program 23</a></td>
   </tr>
+  <tr>
+    <td>24</td>
+    <td>Dijkstra Algorithm</td>
+    <td><a href="#program-24-dijkstra-algorithm">Program 24</a></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Binary Search</td>
+    <td><a href="#program-13-binary-search">Program 13</a></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Binary Search</td>
+    <td><a href="#program-13-binary-search">Program 13</a></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Binary Search</td>
+    <td><a href="#program-13-binary-search">Program 13</a></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Binary Search</td>
+    <td><a href="#program-13-binary-search">Program 13</a></td>
+  </tr>
 </table>
 
 
@@ -1929,7 +1954,7 @@ Total Profit: 237.42
 
 [Back to Index](#index)
 
-# program 24: Dijkstra Algorithm
+# Program 24: Dijkstra Algorithm
 
 ## Aim
 To implement Dijkstra’s Algorithm using a Graph class and find the shortest distance from a source vertex to all other vertices in a weighted graph.
@@ -2000,11 +2025,12 @@ for node, dist in distance.items():
 
 [Back to Index](#index)
 
-program 25: BellmanFord Algorithm
-Aim
+# Program 25: BellmanFord Algorithm
+## Aim
 To implement BellmanFord Algorithm using a graph and find the shortest distances from a given source vertex to all other vertices in a weighted graph.
 
-Program
+## Program
+```python
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -2064,15 +2090,18 @@ print("\nShortest distances from A:")
 
 for node, dist in distance.items():
     print(node, "=", dist)
-Sample Output
-image
-Back to Index
+```
+# Sample Output
+<img width="383" height="221" alt="image" src="https://github.com/user-attachments/assets/c20fe9f9-6e0b-4746-ab44-bb037c56305c" />
 
-program 26: Prim’s Algorithm
-Aim
+[Back to Index](#index)
+
+# Program 26: Prim’s Algorithm
+## Aim
 To implement Prim’s Algorithm using a graph and find the Minimum Spanning Tree (MST) with minimum total cost.
 
-Program
+## Program
+```python
 class Node:
     def __init__(self, data):
         self.data = data
@@ -2149,15 +2178,18 @@ for node1, node2, weight in mst:
     print(node1.data, "-", node2.data, ":", weight)
 
 print("Total Cost =", cost)
-Sample Output
-image
-Back to Index
+```
+# Sample Output
+<img width="340" height="104" alt="image" src="https://github.com/user-attachments/assets/7cc1047b-ea56-4696-bc8b-98e17bd23152" />
+[Back to Index](#index)
 
-program 27: Kruskal’s Algorithm
-Aim
+
+# Program 27: Kruskal’s Algorithm
+## Aim
 To implement Kruskal’s Algorithm using a graph and find the Minimum Spanning Tree (MST) with minimum total cost.
 
-Program
+## Program
+```python
 class Node:
     def __init__(self, data):
         self.data = data
@@ -2253,6 +2285,100 @@ for node1, node2, weight in mst:
     print(node1.data, "-", node2.data, ":", weight)
 
 print("Total Cost =", cost)
-Sample Output
-image
-Back to Index
+```
+# Sample Output
+<img width="320" height="106" alt="image" src="https://github.com/user-attachments/assets/52f47ee6-439f-4a1c-837e-56677967f8af" />
+[Back to Index](#index)
+
+# Program 28: BFS DFS
+## Aim
+To implement Breadth First Search (BFS) and Depth First Search (DFS) traversal algorithms using a graph and traverse all the vertices starting from a given source node.
+
+## Program
+```python
+from collections import deque
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, u, v):
+        u.neighbors.append(v)
+        v.neighbors.append(u)
+
+    # Print Graph
+    def print_graph(self):
+        for node in self.nodes:
+            print(node.data, "->", [n.data for n in node.neighbors])
+
+    # BFS
+    def BFS(self, start):
+        visited = set()
+        queue = deque([start])
+        visited.add(start)
+
+        while queue:
+            node = queue.popleft()
+            print(node.data, end=" ")
+
+            for neighbor in node.neighbors:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+
+    # DFS
+    def DFS(self, start, visited=None):
+        if visited is None:
+            visited = set()
+
+        visited.add(start)
+        print(start.data, end=" ")
+
+        for neighbor in start.neighbors:
+            if neighbor not in visited:
+                self.DFS(neighbor, visited)
+
+
+# Graph Creation
+graph = Graph()
+
+A = graph.add_node("A")
+B = graph.add_node("B")
+C = graph.add_node("C")
+D = graph.add_node("D")
+E = graph.add_node("E")
+
+# Add Edges
+graph.add_edge(A, B)
+graph.add_edge(A, C)
+graph.add_edge(B, D)
+graph.add_edge(C, D)
+graph.add_edge(D, E)
+
+# Print Graph
+print("Graph:")
+graph.print_graph()
+
+# BFS
+print("\nBFS:")
+graph.BFS(A)
+
+# DFS
+print("\n\nDFS:")
+graph.DFS(A)
+```
+# Sample Output
+<img width="301" height="269" alt="image" src="https://github.com/user-attachments/assets/1ad1c674-8cc1-490e-b5bb-ff1249497929" />
+
+[Back to Index](#index)
+
