@@ -1935,6 +1935,7 @@ Total Profit: 237.42
 To implement Dijkstra’s Algorithm using a Graph class and find the shortest distance from a source vertex to all other vertices in a weighted graph.
 
 ## Program
+```python
 def dijkstra(graph, start):
     distances = {node: float('inf') for node in graph}
     distances[start] = 0
@@ -1993,8 +1994,10 @@ distance = dijkstra(g.graph, A)
 
 for node, dist in distance.items():
     print(node, "=", dist)
+```
 ## Sample Output
-image
+<img width="103" height="101" alt="image" src="https://github.com/user-attachments/assets/e25c7746-695e-439d-b9ea-2689046c2623" />
+
 [Back to Index](#index)
 
 program 25: BellmanFord Algorithm
