@@ -187,24 +187,24 @@ Lakshmangarh, Rajasthan
     <td><a href="#program-24-dijkstra-algorithm">Program 24</a></td>
   </tr>
   <tr>
-    <td>13</td>
-    <td>Binary Search</td>
-    <td><a href="#program-13-binary-search">Program 13</a></td>
+    <td>25</td>
+    <td>BellManFord Agorithm/td>
+    <td><a href="#program-25-bellmanford-algorithm">Program 25</a></td>
   </tr>
   <tr>
-    <td>13</td>
-    <td>Binary Search</td>
-    <td><a href="#program-13-binary-search">Program 13</a></td>
+    <td>26</td>
+    <td>Prims's Algorithm/td>
+    <td><a href="#program-26-prim's-algorithm">Program 26</a></td>
   </tr>
   <tr>
-    <td>13</td>
-    <td>Binary Search</td>
-    <td><a href="#program-13-binary-search">Program 13</a></td>
+    <td>27</td>
+    <td>Krushkal's Algorithm</td>
+    <td><a href="#program-27-krushkal's-algorithm">Program 27</a></td>
   </tr>
   <tr>
-    <td>13</td>
-    <td>Binary Search</td>
-    <td><a href="#program-13-binary-search">Program 13</a></td>
+    <td>28</td>
+    <td>BFS DFS/td>
+    <td><a href="#program-28-bfs-dfs">Program 28</a></td>
   </tr>
 </table>
 
