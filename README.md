@@ -1803,7 +1803,7 @@ def greedy_knapsack(weights, profits, capacity):
     print("Total Profit:", total_profit)
 
 
-# Main Program
+#Main Program
 weights = [10, 20, 30]
 profits = [60, 100, 120]
 capacity = 50
@@ -1928,3 +1928,328 @@ Total Profit: 237.42
 ```
 
 [Back to Index](#index)
+
+# program 24: Dijkstra Algorithm
+
+## Aim
+To implement Dijkstra’s Algorithm using a Graph class and find the shortest distance from a source vertex to all other vertices in a weighted graph.
+
+## Program
+def dijkstra(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    visited = set()
+
+    while len(visited) < len(graph):
+        current = min(
+            (node for node in graph if node not in visited),
+            key=lambda node: distances[node]
+        )
+
+        if distances[current] == float('inf'):
+            break
+
+        visited.add(current)
+
+        for neighbor, weight in graph[current]:
+            new_distance = distances[current] + weight
+
+            if new_distance < distances[neighbor]:
+                distances[neighbor] = new_distance
+
+    return distances
+
+
+class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_node(self, node):
+        self.graph[node] = []
+
+    def add_edge(self, u, v, weight):
+        self.graph[u].append((v, weight))
+
+
+g = Graph()
+
+g.add_node("A")
+g.add_node("B")
+g.add_node("C")
+g.add_node("D")
+
+A = "A"
+B = "B"
+C = "C"
+D = "D"
+
+g.add_edge(A, B, 4)
+g.add_edge(A, C, 2)
+g.add_edge(C, B, 1)
+g.add_edge(B, D, 3)
+g.add_edge(C, D, 5)
+
+distance = dijkstra(g.graph, A)
+
+for node, dist in distance.items():
+    print(node, "=", dist)
+## Sample Output
+image
+[Back to Index](#index)
+
+program 25: BellmanFord Algorithm
+Aim
+To implement BellmanFord Algorithm using a graph and find the shortest distances from a given source vertex to all other vertices in a weighted graph.
+
+Program
+class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_node(self, node):
+        self.graph[node] = []
+
+    def add_edge(self, u, v, weight):
+        self.graph[u].append((v, weight))
+
+    def print_graph(self):
+        for node in self.graph:
+            print(node, "->", self.graph[node])
+
+    def bellman_ford(self, start):
+        distance = {node: float('inf') for node in self.graph}
+        distance[start] = 0
+
+        for _ in range(len(self.graph) - 1):
+            for node in self.graph:
+                for neighbor, weight in self.graph[node]:
+                    if distance[node] != float('inf'):
+                        new_distance = distance[node] + weight
+
+                        if new_distance < distance[neighbor]:
+                            distance[neighbor] = new_distance
+
+        return distance
+
+
+# Graph Creation
+g = Graph()
+
+g.add_node("A")
+g.add_node("B")
+g.add_node("C")
+g.add_node("D")
+
+A = "A"
+B = "B"
+C = "C"
+D = "D"
+
+g.add_edge(A, B, 4)
+g.add_edge(A, C, 2)
+g.add_edge(B, C, -3)
+g.add_edge(C, D, 5)
+g.add_edge(B, D, 4)
+
+# Print Graph
+g.print_graph()
+
+# Call Bellman-Ford and Print Distances
+distance = g.bellman_ford(A)
+
+print("\nShortest distances from A:")
+
+for node, dist in distance.items():
+    print(node, "=", dist)
+Sample Output
+image
+Back to Index
+
+program 26: Prim’s Algorithm
+Aim
+To implement Prim’s Algorithm using a graph and find the Minimum Spanning Tree (MST) with minimum total cost.
+
+Program
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, u, v, weight):
+        u.neighbors.append((v, weight))
+        v.neighbors.append((u, weight))
+
+    # =================================================
+    # PRIM'S ALGORITHM
+    # =================================================
+    def prim(self, source):
+        visited = set()
+        visited.add(source)
+
+        mst = []
+        total_cost = 0
+
+        while len(visited) < len(self.nodes):
+            min_weight = float('inf')
+            selected_edge = None
+
+            # Check all edges from visited nodes
+            for node in visited:
+                for neighbor, weight in node.neighbors:
+                    if neighbor not in visited:
+                        if weight < min_weight:
+                            min_weight = weight
+                            selected_edge = (node, neighbor, weight)
+
+            if selected_edge is None:
+                break
+
+            node1, node2, weight = selected_edge
+
+            mst.append((node1, node2, weight))
+            total_cost += weight
+            visited.add(node2)
+
+        return mst, total_cost
+
+
+# Graph Creation
+g = Graph()
+
+A = g.add_node("A")
+B = g.add_node("B")
+C = g.add_node("C")
+D = g.add_node("D")
+
+g.add_edge(A, B, 4)
+g.add_edge(A, C, 2)
+g.add_edge(B, C, 1)
+g.add_edge(B, D, 3)
+g.add_edge(C, D, 5)
+
+# Call Prim's Algorithm
+mst, cost = g.prim(A)
+
+print("Minimum Spanning Tree:")
+
+for node1, node2, weight in mst:
+    print(node1.data, "-", node2.data, ":", weight)
+
+print("Total Cost =", cost)
+Sample Output
+image
+Back to Index
+
+program 27: Kruskal’s Algorithm
+Aim
+To implement Kruskal’s Algorithm using a graph and find the Minimum Spanning Tree (MST) with minimum total cost.
+
+Program
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, u, v, weight):
+        u.neighbors.append((v, weight))
+        v.neighbors.append((u, weight))
+
+    # =================================================
+    # KRUSKAL'S ALGORITHM
+    # =================================================
+    def kruskal(self):
+        edges = []
+
+        # Collect all edges
+        for node in self.nodes:
+            for neighbor, weight in node.neighbors:
+                # Avoid duplicate edges
+                if self.nodes.index(node) < self.nodes.index(neighbor):
+                    edges.append((weight, node, neighbor))
+
+        # Sort edges by weight
+        edges.sort()
+
+        # Initially every node is its own parent
+        parent = {}
+        for node in self.nodes:
+            parent[node] = node
+
+        # Find root
+        def find(node):
+            if parent[node] != node:
+                parent[node] = find(parent[node])
+            return parent[node]
+
+        # Join two sets
+        def union(node1, node2):
+            root1 = find(node1)
+            root2 = find(node2)
+
+            if root1 != root2:
+                parent[root2] = root1
+                return True
+            return False
+
+        mst = []
+        total_cost = 0
+
+        # Select edges
+        for weight, node1, node2 in edges:
+            if union(node1, node2):
+                mst.append((node1, node2, weight))
+                total_cost += weight
+
+            # MST contains V-1 edges
+            if len(mst) == len(self.nodes) - 1:
+                break
+
+        return mst, total_cost
+
+
+# Graph Creation
+g = Graph()
+
+A = g.add_node("A")
+B = g.add_node("B")
+C = g.add_node("C")
+D = g.add_node("D")
+
+g.add_edge(A, B, 4)
+g.add_edge(A, C, 2)
+g.add_edge(B, C, 1)
+g.add_edge(B, D, 3)
+g.add_edge(C, D, 5)
+
+# Call Kruskal's Algorithm
+mst, cost = g.kruskal()
+
+print("Minimum Spanning Tree:")
+
+for node1, node2, weight in mst:
+    print(node1.data, "-", node2.data, ":", weight)
+
+print("Total Cost =", cost)
+Sample Output
+image
+Back to Index
