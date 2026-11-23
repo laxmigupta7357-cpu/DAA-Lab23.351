@@ -188,12 +188,12 @@ Lakshmangarh, Rajasthan
   </tr>
   <tr>
     <td>25</td>
-    <td>BellManFord Agorithm/td>
+    <td>BellManFord Agorithm</td>
     <td><a href="#program-25-bellmanford-algorithm">Program 25</a></td>
   </tr>
   <tr>
     <td>26</td>
-    <td>Prim's Algorithm/td>
+    <td>Prim's Algorithm</td>
     <td><a href="#program-26-prim's-algorithm">Program 26</a></td>
   </tr>
   <tr>
@@ -203,7 +203,7 @@ Lakshmangarh, Rajasthan
   </tr>
   <tr>
     <td>28</td>
-    <td>BFS DFS/td>
+    <td>BFS DFS</td>
     <td><a href="#program-28-bfs-dfs">Program 28</a></td>
   </tr>
 </table>
