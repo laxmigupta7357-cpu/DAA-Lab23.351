@@ -2181,8 +2181,8 @@ print("Total Cost =", cost)
 ```
 # Sample Output
 <img width="340" height="104" alt="image" src="https://github.com/user-attachments/assets/7cc1047b-ea56-4696-bc8b-98e17bd23152" />
-[Back to Index](#index)
 
+[Back to Index](#index)
 
 # Program 27: Kruskal’s Algorithm
 ## Aim
@@ -2288,6 +2288,7 @@ print("Total Cost =", cost)
 ```
 # Sample Output
 <img width="320" height="106" alt="image" src="https://github.com/user-attachments/assets/52f47ee6-439f-4a1c-837e-56677967f8af" />
+
 [Back to Index](#index)
 
 # Program 28: BFS DFS
