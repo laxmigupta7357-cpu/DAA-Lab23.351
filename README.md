@@ -204,12 +204,12 @@ Lakshmangarh, Rajasthan
 <tr>
     <td>28</td>
     <td>Depth First Search (DFS)</td>
-    <td><a href="#program-28-dfs">Program 28</a></td>
+    <td><a href="#program-28-depth-fisrt-search">Program 28</a></td>
 </tr>
 <tr>
     <td>29</td>
     <td>Breadth First Search (BFS)</td>
-    <td><a href="#program-29-bfs">Program 29</a></td>
+    <td><a href="#program-29-breadth-first-search">Program 29</a></td>
 </tr>
 
 </table>
