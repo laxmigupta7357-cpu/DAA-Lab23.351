@@ -201,11 +201,17 @@ Lakshmangarh, Rajasthan
     <td>Kruskal's Algorithm</td>
     <td><a href="#program-27-kruskals-algorithm">Program 27</a></td>
 </tr>
-  <tr>
+<tr>
     <td>28</td>
-    <td>BFS DFS</td>
-    <td><a href="#program-28-bfs-dfs">Program 28</a></td>
-  </tr>
+    <td>Depth First Search (DFS)</td>
+    <td><a href="#program-28-dfs">Program 28</a></td>
+</tr>
+<tr>
+    <td>29</td>
+    <td>Breadth First Search (BFS)</td>
+    <td><a href="#program-29-bfs">Program 29</a></td>
+</tr>
+
 </table>
 
 
@@ -2291,18 +2297,18 @@ print("Total Cost =", cost)
 
 [Back to Index](#index)
 
-# Program 28: BFS DFS
+# Program 28: Depth First Search (DFS)
 ## Aim
-To implement Breadth First Search (BFS) and Depth First Search (DFS) traversal algorithms using a graph and traverse all the vertices starting from a given source node.
+To implement Depth First Search (DFS) algorithm using a graph and traverse all the vertices starting from a given node.
 
 ## Program
 ```python
-from collections import deque
 
 class Node:
     def __init__(self, data):
         self.data = data
         self.neighbors = []
+
 
 class Graph:
     def __init__(self):
@@ -2313,31 +2319,18 @@ class Graph:
         self.nodes.append(node)
         return node
 
-    def add_edge(self, u, v):
-        u.neighbors.append(v)
-        v.neighbors.append(u)
+    def add_edge(self, node1, node2):
+        node1.neighbors.append(node2)
+        node2.neighbors.append(node1)
 
-    # Print Graph
     def print_graph(self):
         for node in self.nodes:
-            print(node.data, "->", [n.data for n in node.neighbors])
-
-    # BFS
-    def BFS(self, start):
-        visited = set()
-        queue = deque([start])
-        visited.add(start)
-
-        while queue:
-            node = queue.popleft()
-            print(node.data, end=" ")
-
+            print(node.data, "->", end=" ")
             for neighbor in node.neighbors:
-                if neighbor not in visited:
-                    visited.add(neighbor)
-                    queue.append(neighbor)
+                print(neighbor.data, end=" ")
+            print()
 
-    # DFS
+    # DFS Algorithm
     def DFS(self, start, visited=None):
         if visited is None:
             visited = set()
@@ -2350,7 +2343,7 @@ class Graph:
                 self.DFS(neighbor, visited)
 
 
-# Graph Creation
+# Create Graph
 graph = Graph()
 
 A = graph.add_node("A")
@@ -2370,16 +2363,117 @@ graph.add_edge(D, E)
 print("Graph:")
 graph.print_graph()
 
-# BFS
-print("\nBFS:")
-graph.BFS(A)
-
-# DFS
-print("\n\nDFS:")
+# DFS Traversal
+print("\nDFS Traversal:")
 graph.DFS(A)
+
 ```
 # Sample Output
-<img width="301" height="269" alt="image" src="https://github.com/user-attachments/assets/1ad1c674-8cc1-490e-b5bb-ff1249497929" />
+```text
+Graph:
+A -> B C
+B -> A D
+C -> A D
+D -> B C E
+E -> D
 
+DFS Traversal:
+A B D C E
+```
 [Back to Index](#index)
+
+# Program 29: Breadth First Search (BFS)
+## Aim
+To implement Breadth First Search (BFS) algorithm using a graph and traverse all the vertices starting from a given node.
+
+## Program
+```python
+
+
+from collections import deque
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = []
+
+
+class Graph:
+    def __init__(self):
+        self.nodes = []
+
+    def add_node(self, data):
+        node = Node(data)
+        self.nodes.append(node)
+        return node
+
+    def add_edge(self, node1, node2):
+        node1.neighbors.append(node2)
+        node2.neighbors.append(node1)
+
+    def print_graph(self):
+        for node in self.nodes:
+            print(node.data, "->", end=" ")
+            for neighbor in node.neighbors:
+                print(neighbor.data, end=" ")
+            print()
+
+    # BFS Algorithm
+    def BFS(self, start):
+        visited = set()
+        queue = deque([start])
+
+        visited.add(start)
+
+        while queue:
+            node = queue.popleft()
+            print(node.data, end=" ")
+
+            for neighbor in node.neighbors:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+
+
+# Create Graph
+graph = Graph()
+
+A = graph.add_node("A")
+B = graph.add_node("B")
+C = graph.add_node("C")
+D = graph.add_node("D")
+E = graph.add_node("E")
+
+# Add Edges
+graph.add_edge(A, B)
+graph.add_edge(A, C)
+graph.add_edge(B, D)
+graph.add_edge(C, D)
+graph.add_edge(D, E)
+
+# Print Graph
+print("Graph:")
+graph.print_graph()
+
+# BFS Traversal
+print("\nBFS Traversal:")
+graph.BFS(A)
+
+```
+# Sample Output
+```text
+Graph:
+A -> B C
+B -> A D
+C -> A D
+D -> B C E
+E -> D
+
+BFS Traversal:
+A B C D E
+```
+[Back to Index](#index)
+
+
+
 
