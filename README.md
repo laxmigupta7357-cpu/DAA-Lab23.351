@@ -194,13 +194,13 @@ Lakshmangarh, Rajasthan
   <tr>
     <td>26</td>
     <td>Prim's Algorithm</td>
-    <td><a href="#program-26-prim's-algorithm">Program 26</a></td>
-  </tr>
-  <tr>
+    <td><a href="#program-26-prims-algorithm">Program 26</a></td>
+</tr>
+<tr>
     <td>27</td>
     <td>Kruskal's Algorithm</td>
-    <td><a href="#program-27-kruskal's-algorithm">Program 27</a></td>
-  </tr>
+    <td><a href="#program-27-kruskals-algorithm">Program 27</a></td>
+</tr>
   <tr>
     <td>28</td>
     <td>BFS DFS</td>
